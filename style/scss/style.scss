@@ -1,0 +1,243 @@
+//sass --watch style/scss:style --style=expanded --source-map
+
+
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles de base */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: rgb(236, 236, 236);
+
+    height: 100vh;
+    width: 100vw;
+}
+
+html {
+    font-size: 16px;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 500px);
+    gap: 40px;
+    height: 100%;
+    width: 100%;
+
+    &__sub {
+        background-color: #FFFFFF;
+        padding: 20px 30px;
+        border: 3px black solid;
+        margin: 20px;
+        width: 500px;
+        height: auto;
+        align-items: flex-start;
+    }
+}
+
+#btn-container {
+    display: flex;
+
+    margin-bottom: 200px;
+
+    gap: 30px;
+
+    justify-content: center;
+}
+
+$cd-btn: #011c37;
+$cd-txt: #15DEA5;
+
+$cd-btn-start: rgba(1, 28, 55, 0);
+$cd-btn-end: rgba(1, 28, 55, 1);
+
+.btn {
+    background-color: $cd-btn-start;
+    color: $cd-txt;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    border-radius: 10rem;
+    border: $cd-btn solid 3px;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+
+    transition: background-color 450ms ease-in-out, transform 300ms 150ms ease-in-out;
+    //ou
+    /*transition-property: background-color, transform;
+    transition-duration: 450ms, 300ms;
+    transition-delay: 0ms, 150ms;
+    transition-timing-function: ease-in-out, ease-in-out;*/
+
+
+    &:hover {
+        transform: scale(1.15);
+        background-color: $cd-btn-end;
+    }
+
+    &:active {
+        border-color:$cd-txt;
+    }
+    p {
+        text-align: center;
+        align-items: center;
+        font-family: 'Gotham Medium';
+        font-size: 24px;
+        margin: none;
+    }
+}
+.btn2 {
+    background-color: $cd-btn-start;
+    color: $cd-txt;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    border-radius: 10rem;
+    border: $cd-btn solid 3px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 450ms, transform 450ms;
+    //ou
+    /*transition-property: background-color, transform;
+    transition-duration: 450ms, 300ms;
+    transition-delay: 0ms, 150ms;
+    transition-timing-function: ease-in-out, ease-in-out;*/
+
+    p {
+        text-align: center;
+        align-items: center;
+        font-family: 'Gotham Medium';
+        font-size: 24px;
+        margin: none;
+    }
+
+    &:hover {
+        transform: scale(1.15);
+        background-color: $cd-btn-end;
+    }
+
+    &:active {
+        border: 5px solid $cd-txt;
+    }
+}
+
+
+
+
+$cd-txt: #6300a0;
+$cd-box: #fff;
+$cd-txt--invalid: #fff;
+$cd-danger: #b20a37;
+
+.form {
+    &__group {
+        & input {
+            border: 2px solid $cd-box;
+            border-radius: 100rem;
+            color: $cd-txt;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            outline: none;
+            padding: .5rem 1.5rem;
+            width: 100%;
+
+            transition: background-color 200ms;
+            &:focus {
+                border: 2px solid $cd-txt;
+            }
+            &:not(:focus):invalid {
+                background-color: $cd-danger;
+                border: 2px solid $cd-danger;
+                color: $cd-txt--invalid;
+            }
+        }
+    }
+}
+.transformTest {
+    display: flex;
+    flex-direction: column;
+
+    &__object {
+        background-color: #15DEA5;
+        height: 100px;
+        width: 100px;
+        margin: auto;
+
+        // transition: transform 300ms ease-in-out;
+    }
+
+    &__btn {
+        background-color: #b20a37;
+
+        margin: auto;
+        margin-bottom: 50px;
+        text-align: center;
+        cursor: pointer;
+        padding:10px;
+        color: white;
+        font-family: 'Inter';
+
+        &:hover {
+            background-color: #850829;
+        }
+    }
+
+    &__text {
+        
+    }
+    
+}
+
+#transformTest1 {
+    &__object {
+        transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
+    }
+    &__btn {
+        &:active + #transformTest1__object {
+            transform: scale(2);
+            background-color: green;
+        }
+    }
+}
+#transformTest2 {
+    &__object {
+        transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
+        
+    }
+    &__btn {
+        &:active + #transformTest2__object {
+            transform: scale(4,0.5);
+            background-color: green;
+        }
+    }
+}
+#transformTest3 {
+    &__object {
+        transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
+        
+    }
+    &__btn {
+        &:active + #transformTest3__object {
+            background-color: green;
+
+            transform: scaleX(2);
+        }
+    }
+}
