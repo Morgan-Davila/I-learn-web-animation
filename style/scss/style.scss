@@ -27,20 +27,22 @@ html {
 main {
     height: 100%;
     width: 100%;
+    display: flex;
 }
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 500px);
+    display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     height: 100%;
     width: 100%;
+    justify-content: center;
 
     &__sub {
         background-color: #FFFFFF;
         padding: 20px 30px;
         border: 3px black solid;
         margin: 20px;
-        width: 500px;
+        width: 400px;
         height: auto;
         align-items: flex-start;
     }
@@ -49,7 +51,6 @@ main {
 #btn-container {
     display: flex;
 
-    margin-bottom: 200px;
 
     gap: 30px;
 
@@ -96,7 +97,7 @@ $cd-btn-end: rgba(1, 28, 55, 1);
         text-align: center;
         align-items: center;
         font-family: 'Gotham Medium';
-        font-size: 24px;
+        font-size: 14px;
         margin: none;
     }
 }
@@ -124,7 +125,7 @@ $cd-btn-end: rgba(1, 28, 55, 1);
         text-align: center;
         align-items: center;
         font-family: 'Gotham Medium';
-        font-size: 24px;
+        font-size: 14px;
         margin: none;
     }
 
@@ -134,7 +135,7 @@ $cd-btn-end: rgba(1, 28, 55, 1);
     }
 
     &:active {
-        border: 5px solid $cd-txt;
+        border-color: $cd-txt;
     }
 }
 
@@ -175,12 +176,10 @@ $cd-danger: #b20a37;
     flex-direction: column;
 
     &__object {
-        background-color: #15DEA5;
         height: 100px;
         width: 100px;
         margin: auto;
-
-        // transition: transform 300ms ease-in-out;
+        transition: transform 500ms ease-in-out, background-color 250ms ease-in-out;
     }
 
     &__btn {
@@ -200,44 +199,151 @@ $cd-danger: #b20a37;
     }
 
     &__text {
-        
+        text-align: center;
+        margin-bottom: 20px;
     }
     
 }
+$scale-color : #15DEA5;
+$scale-color__active : #008000;
 
+$translate-color : #6d6dff;
+$translate-color__active : #0000ff;
+
+$rotate-color: #ffff47;
+$rotate-color__active: #999900;
+
+.scale {
+    background-color: $scale-color;
+}
+.translate {
+    background-color: $translate-color;
+}
+.rotate {
+    background-color: $rotate-color;
+}
 #transformTest1 {
-    &__object {
-        transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
-    }
     &__btn {
         &:active + #transformTest1__object {
             transform: scale(2);
-            background-color: green;
+            background-color: $scale-color__active;
         }
     }
 }
 #transformTest2 {
-    &__object {
-        transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
-        
-    }
     &__btn {
         &:active + #transformTest2__object {
-            transform: scale(4,0.5);
-            background-color: green;
+            transform: scale(2,0.5);
+            background-color: $scale-color__active;
         }
     }
 }
 #transformTest3 {
-    &__object {
-        transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
-        
-    }
     &__btn {
         &:active + #transformTest3__object {
-            background-color: green;
+            background-color: $scale-color__active;
 
             transform: scaleX(2);
+        }
+    }
+}
+
+#transformTest4 {
+    &__btn {
+        &:active + #transformTest4__object {
+            background-color: $scale-color__active;
+
+            transform: scaleY(2);
+        }
+    }
+}
+
+#transformTest5 {
+    &__btn {
+        &:active + #transformTest5__object {
+            background-color: $translate-color__active;
+
+            transform: translate(100%, 100%);
+        }
+    }
+}
+
+#transformTest6 {
+    &__btn {
+        &:active + #transformTest6__object {
+            background-color: $translate-color__active;
+
+            transform: translate(-100%, -100%);
+        }
+    }
+}
+
+#transformTest7 {
+    &__btn {
+        &:active + #transformTest7__object {
+            background-color: $translate-color__active;
+
+            transform: translateX(100px);
+        }
+    }
+}
+
+#transformTest8 {
+    &__btn {
+        &:active + #transformTest8__object {
+            background-color: $translate-color__active;
+
+            transform: translateX(-100px);
+        }
+    }
+}
+
+#transformTest9 {
+    &__btn {
+        &:active + #transformTest9__object {
+            background-color: $translate-color__active;
+
+            transform: translateY(100px);
+        }
+    }
+}
+
+#transformTest10 {
+    &__btn {
+        &:active + #transformTest10__object {
+            background-color: $translate-color__active;
+
+            transform: translateY(-100px);
+        }
+    }
+}
+
+#transformTest11 {
+    &__btn {
+        &:active + #transformTest11__object {
+            background-color: $translate-color__active;
+
+            transform: translate(200%) scaleY(2);
+        }
+    }
+}
+
+#transformTest12 {
+    &__btn {
+        &:active + #transformTest12__object {
+            background-color: $rotate-color__active;
+
+            transform: rotate(90deg);
+        }
+    }
+}
+
+#transformTest13 {
+    &__btn {
+        &:active + #transformTest13__object {
+            background-color: $rotate-color__active;
+
+            transform: rotate(1turn);
         }
     }
 }

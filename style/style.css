@@ -22,28 +22,29 @@ html {
 main {
   height: 100%;
   width: 100%;
+  display: flex;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 500px);
+  display: flex;
+  flex-wrap: wrap;
   gap: 40px;
   height: 100%;
   width: 100%;
+  justify-content: center;
 }
 .container__sub {
   background-color: #FFFFFF;
   padding: 20px 30px;
   border: 3px black solid;
   margin: 20px;
-  width: 500px;
+  width: 400px;
   height: auto;
   align-items: flex-start;
 }
 
 #btn-container {
   display: flex;
-  margin-bottom: 200px;
   gap: 30px;
   justify-content: center;
 }
@@ -76,7 +77,7 @@ main {
   text-align: center;
   align-items: center;
   font-family: "Gotham Medium";
-  font-size: 24px;
+  font-size: 14px;
   margin: none;
 }
 
@@ -101,7 +102,7 @@ main {
   text-align: center;
   align-items: center;
   font-family: "Gotham Medium";
-  font-size: 24px;
+  font-size: 14px;
   margin: none;
 }
 .btn2:hover {
@@ -109,7 +110,7 @@ main {
   background-color: rgb(1, 28, 55);
 }
 .btn2:active {
-  border: 5px solid #15DEA5;
+  border-color: #15DEA5;
 }
 
 .form__group input {
@@ -137,10 +138,10 @@ main {
   flex-direction: column;
 }
 .transformTest__object {
-  background-color: #15DEA5;
   height: 100px;
   width: 100px;
   margin: auto;
+  transition: transform 500ms ease-in-out, background-color 250ms ease-in-out;
 }
 .transformTest__btn {
   background-color: #b20a37;
@@ -155,28 +156,86 @@ main {
 .transformTest__btn:hover {
   background-color: #850829;
 }
-#transformTest1__object {
-  transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
+.transformTest__text {
+  text-align: center;
+  margin-bottom: 20px;
 }
+
+.scale {
+  background-color: #15DEA5;
+}
+
+.translate {
+  background-color: #6d6dff;
+}
+
+.rotate {
+  background-color: #ffff47;
+}
+
 #transformTest1__btn:active + #transformTest1__object {
   transform: scale(2);
-  background-color: green;
+  background-color: #008000;
 }
 
-#transformTest2__object {
-  transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
-}
 #transformTest2__btn:active + #transformTest2__object {
-  transform: scale(4, 0.5);
-  background-color: green;
+  transform: scale(2, 0.5);
+  background-color: #008000;
 }
 
-#transformTest3__object {
-  transition: transform 300ms ease-in-out, background-color 250ms ease-in-out;
-}
 #transformTest3__btn:active + #transformTest3__object {
-  background-color: green;
+  background-color: #008000;
   transform: scaleX(2);
+}
+
+#transformTest4__btn:active + #transformTest4__object {
+  background-color: #008000;
+  transform: scaleY(2);
+}
+
+#transformTest5__btn:active + #transformTest5__object {
+  background-color: #0000ff;
+  transform: translate(100%, 100%);
+}
+
+#transformTest6__btn:active + #transformTest6__object {
+  background-color: #0000ff;
+  transform: translate(-100%, -100%);
+}
+
+#transformTest7__btn:active + #transformTest7__object {
+  background-color: #0000ff;
+  transform: translateX(100px);
+}
+
+#transformTest8__btn:active + #transformTest8__object {
+  background-color: #0000ff;
+  transform: translateX(-100px);
+}
+
+#transformTest9__btn:active + #transformTest9__object {
+  background-color: #0000ff;
+  transform: translateY(100px);
+}
+
+#transformTest10__btn:active + #transformTest10__object {
+  background-color: #0000ff;
+  transform: translateY(-100px);
+}
+
+#transformTest11__btn:active + #transformTest11__object {
+  background-color: #0000ff;
+  transform: translate(200%) scaleY(2);
+}
+
+#transformTest12__btn:active + #transformTest12__object {
+  background-color: #999900;
+  transform: rotate(90deg);
+}
+
+#transformTest13__btn:active + #transformTest13__object {
+  background-color: #999900;
+  transform: rotate(1turn);
 }
 
 /*# sourceMappingURL=style.css.map */
